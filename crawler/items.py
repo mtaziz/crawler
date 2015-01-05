@@ -5,10 +5,73 @@
 # See documentation in:
 # http://doc.scrapy.org/en/latest/topics/items.html
 
-import scrapy
+from scrapy.contrib.loader.processor import TakeFirst
+from scrapy import Field, Item
 
 
-class CrawlerItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class YelpReview(Item):
+    # Crawl date.
+    crawl_date = Field(output_processor=TakeFirst())
+
+    # Crawled page URL.
+    page_url = Field(output_processor=TakeFirst())
+
+    # Yelp biz ID.
+    yelp_biz_id = Field(output_processor=TakeFirst())
+
+    # Name of the restaurant.
+    restaurant_name = Field(output_processor=TakeFirst())
+
+    # Restaurant address.
+    restaurant_address = Field(output_processor=TakeFirst())
+
+    # City
+    restaurant_city = Field(output_processor=TakeFirst())
+
+    # State
+    restaurant_state = Field(output_processor=TakeFirst())
+
+    # Postal code
+    restaurant_postal_code = Field(output_processor=TakeFirst())
+
+    # Phone
+    restaurant_phone = Field(output_processor=TakeFirst())
+
+    # Restaurant website
+    restaurant_website = Field(output_processor=TakeFirst())
+
+    # Restaurant reviews count.
+    restaurant_reviews_count = Field(output_processor=TakeFirst())
+
+    # Restaurant rating.
+    restaurant_rating = Field(output_processor=TakeFirst())
+
+    # Restaurant category.  This could be a string or a list of categories.
+    restaurant_category = Field()
+
+    # Review ID.
+    review_id = Field(output_processor=TakeFirst())
+
+    # Review content.  A list of paragraphs.
+    review_content = Field()
+
+    # Review content date.
+    review_content_date = Field(output_processor=TakeFirst())
+
+    # Reviewer restaurant rating.
+    reviewer_restaurant_rating = Field(output_processor=TakeFirst())
+
+    # Reviewer name.
+    reviewer_name = Field(output_processor=TakeFirst())
+
+    # Reviewer URL
+    reviewer_url = Field(output_processor=TakeFirst())
+
+    # Reviewer location.
+    reviewer_location = Field(output_processor=TakeFirst())
+
+    # Reviewer friends count.
+    reviewer_friends_count = Field(output_processor=TakeFirst())
+
+    # Reviewer reviews count.
+    reviewer_reviews_count = Field(output_processor=TakeFirst())
