@@ -35,6 +35,7 @@ DOWNLOADER_MIDDLEWARES = {
     'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware': None,
     'crawler.middleware.RandomUserAgentDownloaderMiddleware': 400,
 }
+
 USER_AGENT_LIST = [
     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36',
     'Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1667.0 Safari/537.36',
@@ -50,6 +51,10 @@ USER_AGENT_LIST = [
 # Disable redirect.
 REDIRECT_ENABLED = False
 
+ITEM_PIPELINES = [
+    'crawler.pipelines.MySQLStorePipeline',
+]
+
 # Concurrent requests by downloader.
 # CONCURRENT_REQUESTS = 16
 
@@ -60,4 +65,11 @@ REDIRECT_ENABLED = False
 DEPTH_PRIORITY = 1
 SCHEDULER_DISK_QUEUE = 'scrapy.squeue.PickleFifoDiskQueue'
 SCHEDULER_MEMORY_QUEUE = 'scrapy.squeue.FifoMemoryQueue'
+
+
+# MYSQL
+MYSQL_HOST = 'localhost'
+MYSQL_DBNAME = 'yelp'
+MYSQL_USER = 'melovy'
+MYSQL_PASSWD = ''
 
